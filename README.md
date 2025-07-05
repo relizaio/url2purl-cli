@@ -21,9 +21,19 @@ This is a CLI wrapper around the [packageurl-python library](https://github.com/
 
 Run the CLI:
 
+1. Via Docker:
+```
+    docker pull registry.relizahub.com/library/url2purl-cli
+    docker run --rm registry.relizahub.com/library/url2purl-cli "https://github.com/relizaio/url2purl-cli"
+```
+
+2. Via Python directly:
+```
     python -m src "https://github.com/relizaio/url2purl-cli"
+```
 
-Or install as a CLI tool:
-
+3. Via pip install as a CLI tool:
+```
     pip install .
     url2purl "https://github.com/relizaio/url2purl-cli"
+```
