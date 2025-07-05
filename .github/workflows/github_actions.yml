@@ -1,0 +1,27 @@
+on: [push]
+
+name: Build Docker Image And Submit Metadata To ReARM Demo
+
+
+jobs:
+  build-backend:
+    permissions:
+      id-token: write
+    name: Build And Push url2purl-cli
+    runs-on: ubuntu-latest
+    steps:
+      - name: ReARM Build And Submit url2purl-cli release metadata action
+        uses: relizaio/rearm-docker-action@c176f643ec7d9a8a5b819b71f53327a6ee56185b # v1.1.0
+        with:
+          registry_username: ${{ secrets.DOCKER_LOGIN }}
+          registry_password: ${{ secrets.DOCKER_TOKEN }}
+          registry_host: registry.relizahub.com
+          image_namespace: registry.relizahub.com/library
+          image_name: url2purl-cli
+          rearm_api_id: ${{ secrets.REARM_API_ID }}
+          rearm_api_key: ${{ secrets.REARM_API_KEY }}
+          rearm_api_url: https://demo.rearmhq.com
+          path: .
+          enable_sbom: 'true'
+          source_code_sbom_type: 'other'
+          enable_public_cosign_sigstore: 'true'
