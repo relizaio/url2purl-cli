@@ -37,3 +37,9 @@ Run the CLI:
     pip install .
     url2purl "https://github.com/relizaio/url2purl-cli"
 ```
+
+In each case the output will be:
+
+```
+pkg:github/relizaio/url2purl-cli
+```
